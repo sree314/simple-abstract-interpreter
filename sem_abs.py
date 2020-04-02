@@ -13,7 +13,7 @@
 # copyright and related or neighboring rights to sem_abs.py. This work
 # is published from: United States.
 
-from typing import List, Dict, Union
+from typing import List, Dict, Union, Tuple
 from tinyast import *
 import random
 import abstractions
@@ -39,7 +39,7 @@ def evaluate_Expr_abs(E: Expr, m: AbstractMemory, vabs):
 def evaluate_BoolExpr_abs(B: BoolExpr, m: AbstractMemory, vabs):
     return vabs.f_cmpop(B.op, m[B.left.name], vabs.phi(B.right))
 
-def filter_memory_abs(B: BoolExpr, M_abs, vabs) -> List:
+def filter_memory_abs(B: BoolExpr, M_abs: AbstractMemory, vabs) -> Tuple[AbstractMemory, AbstractMemory]:
     true_abs, false_abs = evaluate_BoolExpr_abs(B, M_abs, vabs)
     var_abs = M_abs[B.left.name]
     logger.debug(f"true: {true_abs}, false: {false_abs}, value: {var_abs}")
