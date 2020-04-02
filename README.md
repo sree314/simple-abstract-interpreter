@@ -15,4 +15,5 @@ There is a full AST, a full concrete interpreter, and a full abstract
 interpreter. Note abstract implementations of operators is not yet
 complete for the two value abstractions.
 
-
+The source code also uses type annotations, for use with `mypy`. This
+is not complete.
