@@ -17,3 +17,7 @@ complete for the two value abstractions.
 
 The source code also uses type annotations, for use with `mypy`. This
 is not complete.
+
+## Course Website
+
+This code accompanies Lectures [17](https://www.cs.rochester.edu/~sree/courses/csc-255-455/spring-2020/static/17-pa-ai.pdf), [18](https://www.cs.rochester.edu/~sree/courses/csc-255-455/spring-2020/static/18-ai.pdf) and [19](https://www.cs.rochester.edu/~sree/courses/csc-255-455/spring-2020/static/19-ai-3.pdf) of the [Spring 2020 edition of CSC255/455 Software Analysis and Improvement](https://www.cs.rochester.edu/~sree/courses/csc-255-455/spring-2020/) taught at the University of Rochester.
