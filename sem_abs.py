@@ -124,7 +124,8 @@ def evaluate_Cmd_abs(C: Cmd, M_abs: AbstractMemory, abstraction) -> AbstractMemo
             post_memory = evaluate_Cmd_abs(C.body, pre_memory, abstraction)
             return post_memory
 
-        return abs_iter(F_abs, M_abs, abstraction)
+        _, out = filter_memory_abs(C.cond, abs_iter(F_abs, M_abs, abstraction), v_abs)
+        return out
     else:
         raise NotImplementedError(f"Don't know how to interpret {type(C).__name__}({C})")
 
