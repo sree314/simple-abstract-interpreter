@@ -120,8 +120,11 @@ def evaluate_Cmd(C: Cmd, M: List[Memory]) -> List[Memory]:
         pre_iter_memories = filter_memory(C.cond, out)
         accum: List[Memory] = []
         while len(pre_iter_memories):
+            logger.debug(f"pre_iter_memories: {pre_iter_memories}")
             after_iter_memories = evaluate_Cmd(C.body, pre_iter_memories)
+            logger.debug(f"after_iter_memories: {after_iter_memories}")
             accum = union_memories(accum, after_iter_memories)
+            logger.debug(f"accum: {accum}")
 
             # only keep memories where the condition is true for the next iteration
             pre_iter_memories = filter_memory(C.cond, after_iter_memories)
@@ -198,8 +201,26 @@ def test_evaluate_Cmd():
     M_out = evaluate_Cmd(ploop, M_in)
     print(M_in, M_out)
 
+def test_While():
+    x = Var('x')
+    y = Var('y')
+
+    m1 = {x.name: 4, y.name: 0}
+    m2 = {x.name: 8, y.name: 0}
+    m3 = {x.name: 5, y.name: 0}
+    M_in = [m1, m2, m3]
+    print(M_in)
+
+    p = Program(While(BoolExpr('<', x, 7),
+                      Seq(Assign(y, BinOp('+', y, 1)),
+                          Assign(x, BinOp('+', x, 1)))))
+    print(p)
+    M_out = evaluate_Cmd(p, M_in)
+    print(M_out)
+
 if __name__ == "__main__":
     logging.basicConfig(level = logging.DEBUG)
     test_evaluate_Expr()
     test_evaluate_BoolExpr()
     test_evaluate_Cmd()
+    test_While()
