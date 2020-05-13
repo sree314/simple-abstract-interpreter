@@ -30,7 +30,7 @@ Here is an incomplete list of abstract interpreters built for research or produc
 
   1. [Astrée](http://www.astree.ens.fr/)
   2. [Infer](https://fbinfer.com/)
-  3. [Strata](https://github.com/facebookincubator/SPARTA)
+  3. [SPARTA](https://github.com/facebookincubator/SPARTA)
   4. [IKOS](https://github.com/NASA-SW-VnV/ikos)
   5. [Crab](https://github.com/seahorn/crab)
   6. [MIRAI](https://github.com/facebookexperimental/MIRAI) (Rust-only)
