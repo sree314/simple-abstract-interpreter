@@ -69,7 +69,7 @@ class Seq(Cmd):
         self.cmd1 = cmd1
 
     def __str__(self):
-        return f"{str(self.cmd0)} ; {str(self.cmd1)}"
+        return f"{str(self.cmd0)}; {str(self.cmd1)}"
 
 class Assign(Cmd):
     def __init__(self, left: Var, right: Expr):
@@ -115,6 +115,8 @@ def sequence(l: list) -> Seq:
     if len(l) == 0: raise ValueError("Can't convert an empty list into a Seq")
 
     if len(l) == 1: return Seq(l[0], Skip())
+
+    if len(l) == 2: return Seq(l[0], l[1])
 
     return Seq(l[0], sequence(l[1:]))
 
